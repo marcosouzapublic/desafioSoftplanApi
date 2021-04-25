@@ -10,7 +10,7 @@ using Xunit;
 
 namespace desafioSoftplanTestes.Models
 {
-    class ApiConsumerTeste
+    public class ApiConsumerTeste
     {
         IApiJurosConsumer _apiJurosConsumer;
 
@@ -20,6 +20,13 @@ namespace desafioSoftplanTestes.Models
         }
 
         [Fact]
-        public void 
+        public void ObterTaxaJuros_QuandoChamado_RetornaTaxaJurosFixa()
+        {
+            //Act
+            var taxaJuros = _apiJurosConsumer.ObterTaxaJuros();
+
+            //Assert
+            Assert.True(taxaJuros == 0.01m);
+        }
     }
 }
