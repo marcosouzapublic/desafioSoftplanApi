@@ -7,6 +7,9 @@ using Microsoft.OpenApi.Models;
 using desafioSoftplan.Contracts;
 using desafioSoftplan.Models;
 using System.Net.Http;
+using System.Reflection;
+using System.IO;
+using System;
 
 namespace desafioSoftplan
 {
@@ -28,6 +31,10 @@ namespace desafioSoftplan
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Desafio Softplan", Version = "v1" });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
 
             //Service para injeção de dependência da interface ITaxaJuros.
@@ -75,6 +82,7 @@ namespace desafioSoftplan
             //Habilita o middleware Swagger para ser gerado um endpoint JSON    
             app.UseSwagger();
 
+            // Habilita o Swagger UI
             app.UseSwaggerUI(c =>
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "APITaxaJuros")
             );
