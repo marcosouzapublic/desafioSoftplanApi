@@ -20,6 +20,8 @@ namespace desafioSoftplanTestes
             _calculaJuros = new CalculaJuros(new ApiJurosConsumer(new HttpClient() { BaseAddress = new System.Uri("http://localhost:5001/taxajuros") }));
         }
 
+        #region TestesEndPointTaxaJuros
+
         [Fact]
         public void ObterTaxaJuros_QuandoChamado_RetornaTaxaJurosFixa()
         {
@@ -30,6 +32,9 @@ namespace desafioSoftplanTestes
             Assert.True(taxaJuros == 0.01m);
         }
 
+        #endregion
+
+        #region TestesEndPointCalculaJuros
         [Fact]
         public void ObterCalculoJuros_QuandoChamado_RetornaCalculoJuros()
         {
@@ -50,5 +55,6 @@ namespace desafioSoftplanTestes
             Assert.True(Math.Truncate(100 * valorFinal) / 100 == 105.1m);
         }
 
+        #endregion
     }
 }
