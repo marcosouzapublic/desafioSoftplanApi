@@ -3,6 +3,7 @@ using desafioSoftplan.Controllers;
 using desafioSoftplan.Contracts;
 using desafioSoftplan.Models;
 using System.Net.Http;
+using System;
 
 namespace desafioSoftplanTestes
 {
@@ -36,7 +37,17 @@ namespace desafioSoftplanTestes
             var valorFinal = _controller.ObterCalculoJuros(_calculaJuros, 100, 5);
 
             //Assert
-            Assert.True(valorFinal == 105.10);
+            Assert.False(String.IsNullOrEmpty(valorFinal));
+        }
+
+        [Fact]
+        public void ObterCalculoJuros_QuandoChamado_RetornaValorCorreto()
+        {
+            //Act
+            var valorFinal = Convert.ToDecimal(_controller.ObterCalculoJuros(_calculaJuros, 100, 5));
+
+            //Assert
+            Assert.True(Math.Truncate(100 * valorFinal) / 100 == 105.1m);
         }
 
     }

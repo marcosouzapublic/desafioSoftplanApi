@@ -20,9 +20,9 @@ namespace desafioSoftplan.Controllers
 
         [HttpGet]
         [Route("/calculajuros")]
-        public double ObterCalculoJuros([FromServices] ICalculaJuros calculaJuros, [Required] decimal valorInicial, [Required] int mesesCorridos)
+        public string ObterCalculoJuros([FromServices] ICalculaJuros calculaJuros, [Required] decimal valorInicial, [Required] int mesesCorridos)
         {
-            return calculaJuros.CalculaJurosFatura(valorInicial, mesesCorridos);
+            return calculaJuros.ExibeJurosCalculados(valorInicial, mesesCorridos);
         }
     }
 

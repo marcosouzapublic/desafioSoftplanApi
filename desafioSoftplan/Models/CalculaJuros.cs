@@ -19,12 +19,20 @@ namespace desafioSoftplan.Models
             _apiJurosConsumer = apiJurosConsumer;
         }
 
-        public double CalculaJurosFatura(decimal valorInicial, int mesesCorridos)
+        public decimal CalculaJurosFatura(decimal valorInicial, int mesesCorridos)
         {
             var taxaJuros = _apiJurosConsumer.ObterTaxaJuros();
-            var valorFinal = Math.Pow(Convert.ToDouble(valorInicial * (1 + taxaJuros)), Convert.ToDouble(mesesCorridos));
+            var potencia = Math.Pow(Convert.ToDouble(1 + taxaJuros), Convert.ToDouble(mesesCorridos));
+            var valorFinal = valorInicial * Convert.ToDecimal(potencia);
 
             return valorFinal;
+        }
+
+        public string ExibeJurosCalculados(decimal valorInicial, int mesesCorridos)
+        {
+            var jurosCalculados = CalculaJurosFatura(valorInicial, mesesCorridos);
+
+            return String.Format("{0:0.00}", jurosCalculados);
         }
     }
 }

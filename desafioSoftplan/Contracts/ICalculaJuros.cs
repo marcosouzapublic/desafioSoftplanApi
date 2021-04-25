@@ -4,6 +4,8 @@
     {
         public decimal ValorInicial { get; set; }
         public int DiasCorridos { get; set; }
-        public double CalculaJurosFatura(decimal valorInicial, int mesesCorridos);
+        public decimal CalculaJurosFatura(decimal valorInicial, int mesesCorridos);
+
+        public string ExibeJurosCalculados(decimal valorInicial, int mesesCorridos);
     }
 }
