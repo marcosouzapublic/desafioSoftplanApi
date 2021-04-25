@@ -1,5 +1,9 @@
 ﻿namespace desafioSoftplan.Contracts
 {
+    /// <summary>
+    /// Interface ICalculaJuros.
+    /// Fornece uma base sólida para implementação de uma classe realiza cálculos de juros compostos.
+    /// </summary>
     public interface ICalculaJuros
     {
         public decimal ValorInicial { get; set; }

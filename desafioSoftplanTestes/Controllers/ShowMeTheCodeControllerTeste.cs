@@ -8,14 +8,14 @@ using desafioSoftplan.Controllers;
 using desafioSoftplan.Models;
 using Xunit;
 
-namespace desafioSoftplanTestes
+namespace desafioSoftplanTestes.Controllers
 {
-    public class ShowMeTheCodeControllerTest
+    public class ShowMeTheCodeControllerTeste
     {
         ShowMeTheCodeController _controller;
         IShowMeTheCode _contract;
 
-        public ShowMeTheCodeControllerTest()
+        public ShowMeTheCodeControllerTeste()
         {
             _controller = new ShowMeTheCodeController();
             _contract = new ShowMeTheCode("https://github.com/marcosouzapublic/desafioSoftplanApi");

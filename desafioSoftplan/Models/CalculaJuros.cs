@@ -4,6 +4,10 @@ using desafioSoftplan.Contracts;
 
 namespace desafioSoftplan.Models
 {
+    /// <summary>
+    /// Classe CalculaJuros.
+    /// Trata do cálculo dos juros compostos gerados a partir de uma conta vencida.
+    /// </summary>
     public class CalculaJuros : ICalculaJuros
     {
         private ApiJurosConsumer _apiJurosConsumer { get; set; }
@@ -19,6 +23,11 @@ namespace desafioSoftplan.Models
             _apiJurosConsumer = apiJurosConsumer;
         }
 
+        /// <summary>
+        /// Método CalculaJurosFatura.
+        /// Retorna um decimal com o montante da operação, utilizando a fórmula para juros compostos:
+        /// ValorFinal = ValorInicial * (1 + Juros) ^ MesesCorridos.
+        /// </summary>
         public decimal CalculaJurosFatura(decimal valorInicial, int mesesCorridos)
         {
             var taxaJuros = _apiJurosConsumer.ObterTaxaJuros();
@@ -28,6 +37,10 @@ namespace desafioSoftplan.Models
             return valorFinal;
         }
 
+        /// <summary>
+        /// Método ExibeJurosCalculados.
+        /// Retorna o valor gerado em CalculaJurosFatura formatado no padrão brasileiro de moeda, trucado, com 2 casas decimais.
+        /// </summary>
         public string ExibeJurosCalculados(decimal valorInicial, int mesesCorridos)
         {
             var jurosCalculados = CalculaJurosFatura(valorInicial, mesesCorridos);

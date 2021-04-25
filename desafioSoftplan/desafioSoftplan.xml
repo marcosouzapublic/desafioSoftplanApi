@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>desafioSoftplan</name>
+    </assembly>
+    <members>
+        <member name="T:desafioSoftplan.Contracts.IApiJurosConsumer">
+            <summary>
+            Interface IApiJurosConsumer.
+            Fornece uma base sólida para implementação de uma classe que fará o consumo de uma API para controle de juros.
+            </summary>
+        </member>
+        <member name="T:desafioSoftplan.Contracts.ICalculaJuros">
+            <summary>
+            Interface ICalculaJuros.
+            Fornece uma base sólida para implementação de uma classe realiza cálculos de juros compostos.
+            </summary>
+        </member>
+        <member name="T:desafioSoftplan.Contracts.IShowMeTheCode">
+            <summary>
+            Interface IApiJurosConsumer.
+            Fornece uma base sólida para implementação de uma classe que retorna uma URL de código fonte do GitHub.
+            </summary>
+        </member>
+        <member name="T:desafioSoftplan.Contracts.ITaxaJuros">
+            <summary>
+            Interface ITaxaJuros.
+            Fornece uma base sólida para implementação de uma classe que manipula uma taxa de juros.
+            </summary>
+        </member>
+        <member name="T:desafioSoftplan.Controllers.JurosController">
+            <summary>
+            Controlador JurosController.
+            Controla o acesso do usuário às classes e métodos que manipulam os juros dentro do app.
+            </summary>
+        </member>
+        <member name="M:desafioSoftplan.Controllers.JurosController.ObterTaxaJuros(desafioSoftplan.Contracts.ITaxaJuros)">
+            <summary>
+            [GET] Endpoint ObterTaxaJuros.
+            Provê a taxa de juros atual fixada no sistema.
+            </summary>
+        </member>
+        <member name="M:desafioSoftplan.Controllers.JurosController.ObterCalculoJuros(desafioSoftplan.Contracts.ICalculaJuros,System.Decimal,System.Int32)">
+            <summary>
+            [GET] Endpoint CalculaJuros.
+            Provê o cálculo dos juros compostos de uma conta vencida, com valor inicial e tempo corrido fornecidos pelo usuário.
+            </summary>
+        </member>
+        <member name="T:desafioSoftplan.Controllers.ShowMeTheCodeController">
+            <summary>
+            Controlador ShowMeTheCode.
+            Controla o acesso do usuário às classes e métodos que manipulam a URL do repositório do GitHub que contém o código fonte da aplicação.
+            </summary>
+        </member>
+        <member name="M:desafioSoftplan.Controllers.ShowMeTheCodeController.ObterCodigoFonte(desafioSoftplan.Contracts.IShowMeTheCode)">
+            <summary>
+            [GET] Endpoint ShowMeTheCode.
+            Retorna uma string contendo a URL do repositório onde se encontra o código fonte da aplicação.
+            </summary>
+        </member>
+        <member name="T:desafioSoftplan.Models.ApiJurosConsumer">
+            <summary>
+            Classe ApiJurosComsumer.
+            Classe responsável por consumir a API que exibe os juros atuais.
+            </summary>
+        </member>
+        <member name="T:desafioSoftplan.Models.CalculaJuros">
+            <summary>
+            Classe CalculaJuros.
+            Trata do cálculo dos juros compostos gerados a partir de uma conta vencida.
+            </summary>
+        </member>
+        <member name="M:desafioSoftplan.Models.CalculaJuros.CalculaJurosFatura(System.Decimal,System.Int32)">
+            <summary>
+            Método CalculaJurosFatura.
+            Retorna um decimal com o montante da operação, utilizando a fórmula para juros compostos:
+            ValorFinal = ValorInicial * (1 + Juros) ^ MesesCorridos.
+            </summary>
+        </member>
+        <member name="M:desafioSoftplan.Models.CalculaJuros.ExibeJurosCalculados(System.Decimal,System.Int32)">
+            <summary>
+            Método ExibeJurosCalculados.
+            Retorna o valor gerado em CalculaJurosFatura formatado no padrão brasileiro de moeda, trucado, com 2 casas decimais.
+            </summary>
+        </member>
+        <member name="T:desafioSoftplan.Models.ShowMeTheCode">
+            <summary>
+            Classe ShowMeTheCode.
+            Fornece uma URL contendo o repositório do GitHub onde se encontra o código fonte da aplicação.
+            </summary>
+        </member>
+        <member name="T:desafioSoftplan.Models.TaxaJuros">
+            <summary>
+            Classe Taxa Juros
+            Fornece a taxa de juros atual, fixada a 1%. 
+            </summary>
+        </member>
+    </members>
+</doc>

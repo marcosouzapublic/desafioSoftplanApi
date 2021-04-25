@@ -3,6 +3,10 @@ using desafioSoftplan.Contracts;
 
 namespace desafioSoftplan.Models
 {
+    /// <summary>
+    /// Classe ApiJurosComsumer.
+    /// Classe responsável por consumir a API que exibe os juros atuais.
+    /// </summary>
     public class ApiJurosConsumer : IApiJurosConsumer
     {
         public HttpClient HttpClient { get; set; }

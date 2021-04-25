@@ -24,13 +24,17 @@ namespace desafioSoftplan
 
             services.AddControllers();
 
+            //Service para configuração da biblioteca Swagger, responsável pela documentação e exibição dos endpoints da API.
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "softplan", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Desafio Softplan", Version = "v1" });
             });
 
+            //Service para injeção de dependência da interface ITaxaJuros.
             services.AddScoped<ITaxaJuros, TaxaJuros>();
 
+            //Service para injeção de dependência da interface ICalculaJuros.
+            //Alterar a URL passada para o número da porta que utilize em seu servidor de aplicação.
             services.AddScoped<ICalculaJuros, CalculaJuros>(j =>
                 new CalculaJuros(
                     new ApiJurosConsumer(
@@ -42,6 +46,7 @@ namespace desafioSoftplan
                 )
             );
 
+            //Service para injeção de dependência da interface IShowMeTheCode.
             services.AddScoped<IShowMeTheCode, ShowMeTheCode>(s =>
                 new ShowMeTheCode("https://github.com/marcosouzapublic/desafioSoftplanApi")
             );
@@ -53,7 +58,7 @@ namespace desafioSoftplan
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "softplan v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Desafio Softplan v1"));
             }
 
             app.UseHttpsRedirection();

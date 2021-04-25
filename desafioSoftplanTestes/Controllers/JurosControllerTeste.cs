@@ -5,7 +5,7 @@ using desafioSoftplan.Models;
 using System.Net.Http;
 using System;
 
-namespace desafioSoftplanTestes
+namespace desafioSoftplanTestes.Controllers
 {
     public class JurosControllerTeste
     {

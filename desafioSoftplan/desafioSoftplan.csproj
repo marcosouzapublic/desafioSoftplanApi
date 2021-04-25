@@ -8,6 +8,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <WarningLevel>5</WarningLevel>
+    <DocumentationFile>C:\Users\Marco\OneDrive\Área de Trabalho\desafioSoftplan\desafioSoftplan\desafioSoftplan.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
