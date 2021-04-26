@@ -12,7 +12,7 @@ Para resolver a operação de potência foi utilizada a bilbioteca Math, atravé
 
 # Testes
 
-O projeto também conta com alguns testes unitários automátizados, separados dentro da namespace desafioSoftPlanTestes.
+O projeto também conta com alguns testes unitários automatizados, separados dentro da namespace desafioSoftPlanTestes.
 
 # Configurações
 
