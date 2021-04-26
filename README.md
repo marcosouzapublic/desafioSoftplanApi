@@ -27,3 +27,6 @@ o princípio Dependecy Inversion Principle.
 
 Além disso, os nomes de métodos, variáveis e testes respeitam o princípio da Importância dos Nomes. Cada um deles possui o nome coeso em relação ao comportamento e função, 
 garantindo fácil compreensão do código.
+
+Também é fácil incluir novas funcionalidades ao código, uma vez que o princípio Open-Closed é aplicável com diferentes implementações das interfaces utilizadas no projeto. Nenhum 
+endpoint depende de implementações e sim de abstrações.
