@@ -12,10 +12,14 @@ namespace desafioSoftplan.Models
     {
         private ApiJurosConsumer _apiJurosConsumer { get; set; }
 
-        [Required]
+
+        [Required(ErrorMessage = "O parâmetro valor inicial é obrigatório", AllowEmptyStrings = false)]
+        [RegularExpression(@"^\d+\.\d{0,2}$")]
+        [Range(0, 9999999999999999.99)]
         public decimal ValorInicial { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O parâmetro dias corridos é obrigatório", AllowEmptyStrings = false)]
+        [Range(1, Int32.MaxValue)]
         public int DiasCorridos { get; set; }
 
         public CalculaJuros(ApiJurosConsumer apiJurosConsumer)
