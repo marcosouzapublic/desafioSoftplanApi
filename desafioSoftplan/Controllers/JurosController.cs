@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using desafioSoftplan.Contracts;
-using desafioSoftplan.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace desafioSoftplan.Controllers

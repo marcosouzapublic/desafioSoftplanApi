@@ -1,5 +1,3 @@
-
-
 namespace desafioSoftplan.Contracts{
 
     /// <summary>
